@@ -1,0 +1,86 @@
+{% extends 'website/frontend/frontend_base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    关于我
+{% endblock %}
+
+{% block external_header %}
+
+{% endblock %}
+
+{% block left %}
+    <div class="col-md-12 article">
+        <div class="col-md-3 text-center">
+            <img src="{% static 'image/header.png' %}" alt="" class="img-circle img-responsive">
+            <h3>雨翌</h3>
+            <p>趴在键盘上的咸鱼喵</p>
+        </div>
+        <div class="col-md-9 personal-info">
+            <h2>基本信息：</h2>
+            <hr>
+            <ul>
+                <li><p>姓名：段艺</p></li>
+                <li><p>生日：1995年2月9日</p></li>
+                <li><p>学校：哈尔滨工业大学-计算机科学与技术学院</p></li>
+            </ul>
+            <h2>专业技能：</h2>
+            <hr>
+            <ul>
+                <li><p>Python后端</p></li>
+                <li><p>Django熟练工</p></li>
+                <li><p>简单的前端开发</p></li>
+                <li><p>半吊子的DBA&运维</p></li>
+                <li><p>HCNA认证</p></li>
+            </ul>
+            <h2>项目经历：</h2>
+            <hr>
+            <ul>
+                <li><p><a href="https://github.com/yumendy/HIT-Mobile-SDK-Python" target="_blank">哈工大移动应用平台第三方WEB应用接入Python-SDK</a></p></li>
+                <li><p><a href="https://github.com/yumendy/MessageModule" target="_blank">基于socket的自有协议消息通信模块</a></p></li>
+                <li><p><a href="https://github.com/yumendy/CommunityManagement" target="_blank">基于组合模式设计的社团管理系统</a></p></li>
+                <li><p><a href="https://github.com/yumendy/TradsDemo" target="_blank">中国传统文化元素流通指数计算平台</a></p></li>
+                <li><p><a href="https://github.com/yumendy/TeenSchool" target="_blank">哈工大活动签到系统</a></p></li>
+                <li><p><a href="https://github.com/yumendy/shsj" target="_blank">哈工大计算机学院志愿服务时长申报平台</a></p></li>
+                <li><p>哈工大微软俱乐部官网（第一版）</p></li>
+                <li><p><a href="https://github.com/yumendy/EateryMaster" target="_blank">食堂达人</a></p></li>
+                <li><p>SSECTA（SSE-C语言训练助手）</p></li>
+                <li><p>……（还有不少其他项目~为什么不去GITHUB看看呢^v^）</p></li>
+            </ul>
+            <h2>其他经历：</h2>
+            <hr>
+            <ul>
+                <li><p>2014-Python-TA</p></li>
+                <li><p>2015-C-TA</p></li>
+                <li><p>2015-CPP-TA</p></li>
+                <li><p>2016-CPP-TA</p></li>
+                <li><p>HIT-MSC 副主席</p></li>
+                <li><p>Pureweber 开发组组长</p></li>
+                <li><p>HIT校纪委助管</p></li>
+                <li><p>HIT网络与信息中心助管</p></li>
+            </ul>
+            <h2>生活相关：</h2>
+            <hr>
+            <ul>
+                <li><p>标准码农，昼伏夜出</p></li>
+                <li><p>单身狗</p></li>
+                <li><p>爱猫</p></li>
+                <li><p>Enlightened</p></li>
+                <li><p>星海城&宫崎骏的脑残粉</p></li>
+                <li><p>偶尔画画但绝不唱歌</p></li>
+                <li><p>转战基三的籼米，永远与向圣山擦肩而过的水T</p></li>
+                <li><p>（接上条↑）电八大唐“青锋云上”固定团收人</p></li>
+            </ul>
+            <h2>写在最后：</h2>
+            <hr>
+            <h4>分享一句座右铭：</h4>
+            <blockquote class="text-danger">
+              <p>面对梦想，有人执着，有人放弃。面对现实，有人微笑，有人流泪。自己选择的路， 跪着也要走完！</p>
+            </blockquote>
+            <hr>
+            <img src="{% static 'image/cat.jpg' %}" alt="" class="img-responsive img-thumbnail">
+            <hr>
+            <h4 class="text-primary">追梦路漫漫，感谢正在看着这些文字的你一路相伴……</h4>
+        </div>
+    </div>
+{% endblock %}

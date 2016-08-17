@@ -1,0 +1,44 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/iconfont.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.cookie.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/utils.js' %}"></script>
+    {% block external_header %}{% endblock %}
+</head>
+<body>
+    {% block body %}{% endblock %}
+</body>
+{% block external_js %}{% endblock %}
+<script type="text/javascript">
+    $('#{{active_page}}').addClass("active");
+    var csrftoken = $.cookie('csrftoken');
+        function csrfSafeMethod(method) {
+            return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+        }
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+</script>
+</html>
+
+<!--
+TODO:
+    1.碎碎念后台页面(√)，
+    2.碎碎念首页挂件，
+    3.碎碎念时间轴，
+    4.留言板页面，(√)
+    5.日志详情页多说评论，(√)
+    6.导航栏挂件，
+-->

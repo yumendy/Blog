@@ -1,0 +1,22 @@
+{% extends 'website/frontend/frontend_base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    留言板
+{% endblock %}
+
+{% block external_header %}
+
+{% endblock %}
+
+{% block left %}
+    <div class="col-md-12 article">
+        <h2 class="text-primary">留言板</h2>
+        <p class="text-info">&emsp;&emsp;历经千辛万苦，终于是完成惹自己的博客，如果有什么好的建议，欢迎留言告诉我~</p>
+    </div>
+    <div class="col-md-12 article">
+        <!-- 多说评论框 start -->
+            <div class="ds-thread" data-thread-key="guestbook" data-title="留言板" data-url="http://yumendy.com/guest/"></div>
+        <!-- 多说评论框 end -->
+    </div>
+{% endblock %}

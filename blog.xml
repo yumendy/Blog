@@ -1,0 +1,8 @@
+<uwsgi>
+    <socket>127.0.0.1:8800</socket>
+    <chdir>/var/www/Blog</chdir>
+    <module>Blog.wsgi:application</module>
+    <processes>2</processes>
+    <daemonize>/var/log/uwsgi.log</daemonize>
+</uwsgi>
+
