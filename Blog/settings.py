@@ -25,7 +25,7 @@ SECRET_KEY = '8-2=j0c!gm(49u2$jd!hfdhcirw)3mulxw46@j0%@m1l6zf+uy'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = debug
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*', 'yumendy.com', 'www.yumendy.com']
 
 # Application definition
 
