@@ -1,4 +1,5 @@
 {% extends 'website/backend/backend_base.html' %}
+{% load static %}
 
 {% block option-title %}
     更新碎碎念
@@ -34,7 +35,7 @@
                 <div class="col-sm-9">
                     <input type="file" id="image" name="image" class="form-control">
                     {% if mood.image %}
-                        <span class="help-block" id="helpBlock">当前图片：<a href="{% url 'media' mood.image %}">{% url 'media' mood.image %}</a>,不做修改则上空留空。</span>
+                        <span class="help-block" id="helpBlock">当前图片：<a href="{% get_media_prefix%}{{ mood.image }}">{% get_media_prefix%}{{ mood.image }}</a>,不做修改则上空留空。</span>
                     {% endif %}
                 </div>
             </div>

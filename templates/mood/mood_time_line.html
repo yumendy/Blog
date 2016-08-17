@@ -1,5 +1,6 @@
 {% extends 'website/frontend/frontend_base.html' %}
-{% load staticfiles %}
+{% load static %}
+
 
 {% block title %}
     碎碎念
@@ -36,7 +37,7 @@
                                     <p>{{ mood.content }}</p>
                                 </blockquote>
                             {% elif mood.mood_type == 'I' %}
-                                <img class="img-responsive" src="{% url 'media' mood.image  %}" />
+                                <img class="img-responsive" src="{% get_media_prefix%}{{ mood.image }}" />
                                 <p>{{ mood.content }}</p>
                             {% else %}
                                 <p>{{ mood.content }}</p>

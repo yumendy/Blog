@@ -1,4 +1,5 @@
 {% extends 'website/backend/backend_base.html' %}
+{% load static %}
 
 {% block option-title %}
     碎碎念列表
@@ -28,7 +29,7 @@
                         <td>{{ item.content }}</td>
                         <td>
                             {% if item.mood_type == 'I' %}
-                                <button data-url="{% url 'media' item.image %}" class="btn btn-info photo-view" role="button" >查看</button>
+                                <button data-url="{% get_media_prefix%}{{ item.image }}" class="btn btn-info photo-view" role="button" >查看</button>
                             {% endif %}
                         </td>
                         <td>

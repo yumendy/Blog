@@ -1,3 +1,4 @@
+{% load static %}
 <div class="col-md-12 article">
     <div class="col-md-12 text-center">
         <h2 class="category-header">碎碎念</h2>
@@ -6,7 +7,7 @@
     {% if mood.mood_type == 'T' %}
         <p>{{ mood.content }}</p>
         {% elif mood.mood_type == 'I' %}
-        <img class="img-responsive" src="{% url 'media' mood.image  %}" />
+        <img class="img-responsive" src="{% get_media_prefix%}{{ mood.image }}  " />
         <p>{{ mood.content }}</p>
         {% else %}
         <blockquote><p>{{ mood.content }}</p></blockquote>
