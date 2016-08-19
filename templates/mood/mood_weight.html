@@ -6,13 +6,13 @@
     </div>
     {% if mood.mood_type == 'T' %}
         <p>{{ mood.content }}</p>
-        {% elif mood.mood_type == 'I' %}
+    {% elif mood.mood_type == 'I' %}
         <img class="img-responsive" src="{% get_media_prefix%}{{ mood.image }}  " />
         <p>{{ mood.content }}</p>
-        {% else %}
+    {% else %}
         <blockquote><p>{{ mood.content }}</p></blockquote>
-        <p class="text-right"><small>{{ mood.create_time|date:"Y-m-d" }}&nbsp;{{ mood.create_time|time:"H:i:s" }}</small></p>
     {% endif %}
+    <p class="text-right"><small>{{ mood.create_time|date:"Y-m-d" }}&nbsp;{{ mood.create_time|time:"H:i:s" }}</small></p>
     <hr>
     <div class="col-md-12 text-right">
         <a role="button" class="btn btn-warning" href="{% url 'mood-time-line' %}">更多</a>
