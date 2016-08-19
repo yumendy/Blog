@@ -17,6 +17,8 @@ class Essay(models.Model):
     title = models.CharField(max_length=128)
     publish_time = models.DateTimeField(auto_now_add=True)
     modification_time = models.DateTimeField(auto_now=True)
+    publish_time.editable = True
+    modification_time.editable = True
     show_times = models.IntegerField(default=0)
 
     class Meta:
