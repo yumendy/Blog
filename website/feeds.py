@@ -21,5 +21,14 @@ class LatestBlogFeed(Feed):
     def item_link(self, item):
         return reverse('blog-detail', args=[item.pk])
 
+    def item_author_name(self, item):
+        return item.author.username
 
+    def item_author_email(self, item):
+        return item.author.email
 
+    def item_pubdate(self, item):
+        return item.publish_time
+
+    def item_categories(self, item):
+        return (item.category,)
