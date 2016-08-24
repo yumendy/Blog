@@ -27,7 +27,6 @@
 </body>
 {% block external_js %}{% endblock %}
 <script type="text/javascript">
-    $('#{{active_page}}').addClass("active");
     var csrftoken = $.cookie('csrftoken');
         function csrfSafeMethod(method) {
             return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
@@ -41,13 +40,3 @@
         });
 </script>
 </html>
-
-<!--
-TODO:
-    1.碎碎念后台页面(√)，
-    2.碎碎念首页挂件，
-    3.碎碎念时间轴，
-    4.留言板页面，(√)
-    5.日志详情页多说评论，(√)
-    6.导航栏挂件，
--->

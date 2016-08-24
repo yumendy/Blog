@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
-from local_settings import DB_USER, DB_PASSWORD, QN_ACCESS_KEY, QN_SECRET_KEY, debug
+from local_settings import debug, storage
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -77,14 +77,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Blog.wsgi.application'
 
+from local_settings import DB_USER, DB_PASSWORD, DB_NAME, DB_HOST, DB_PORT
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'yumendy_blog',
+        'NAME': DB_NAME,
         'USER': DB_USER,
         'PASSWORD': DB_PASSWORD,
-        'HOST': '127.0.0.1',
-        'PORT': 3306,
+        'HOST': DB_HOST,
+        'PORT': DB_PORT,
     }
 }
 
@@ -122,20 +124,24 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
-STATIC_URL = 'http://oc2ae6w67.bkt.clouddn.com/static/'
+
+if storage == 'qiniu':
+    from local_settings import QN_SECRET_KEY, QN_ACCESS_KEY, QN_BUCKET_NAME, QN_BUCKET_DOMAIN
+
+    STATIC_URL = 'http://oc2ae6w67.bkt.clouddn.com/static/'
+    MEDIA_URL = 'http://oc2ae6w67.bkt.clouddn.com/media/'
+    DEFAULT_FILE_STORAGE = 'qiniustorage.backends.QiniuMediaStorage'
+    STATICFILES_STORAGE = 'qiniustorage.backends.QiniuStaticStorage'
+    QINIU_ACCESS_KEY = QN_ACCESS_KEY
+    QINIU_SECRET_KEY = QN_SECRET_KEY
+    QINIU_BUCKET_NAME = QN_BUCKET_NAME
+    QINIU_BUCKET_DOMAIN = QN_BUCKET_DOMAIN
+else:
+    STATIC_URL = '/static/'
+    MEDIA_URL = '/media/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static').replace('\\', '/')
-
-MEDIA_URL = 'http://oc2ae6w67.bkt.clouddn.com/media/'
-
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')
-
-QINIU_ACCESS_KEY = QN_ACCESS_KEY
-QINIU_SECRET_KEY = QN_SECRET_KEY
-QINIU_BUCKET_NAME = 'yumendy-blog'
-QINIU_BUCKET_DOMAIN = 'oc2ae6w67.bkt.clouddn.com'
-DEFAULT_FILE_STORAGE = 'qiniustorage.backends.QiniuMediaStorage'
-STATICFILES_STORAGE = 'qiniustorage.backends.QiniuStaticStorage'
 
 LOG_FILE = os.path.join(BASE_DIR, 'log/blog.log')
 DEBUG_LOG_FILE = os.path.join(BASE_DIR, 'log/debug.log')
