@@ -7,7 +7,7 @@ from markdown import markdown
 class LatestBlogFeed(Feed):
     title = 'yumendy\'s blog latest article.'
     link = reverse_lazy('homepage')
-    description = 'yumendy\'s blog latest article.'
+    description = 'yumendy\'s blog'
 
     def items(self):
         return Blog.objects.all()[:10]
