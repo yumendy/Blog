@@ -10,6 +10,8 @@ from django.conf import settings
 from qiniu import Auth, put_file, etag, urlsafe_base64_encode
 import qiniu.config
 
+from django.core.files.storage import default_storage, get_storage_class
+
 
 def get_path_format_vars():
     return {
@@ -23,28 +25,9 @@ def get_path_format_vars():
 
 
 # 保存上传的文件
-# def save_upload_file(PostFile, FilePath):
-#     try:
-#         f = open(FilePath, 'wb')
-#         for chunk in PostFile.chunks():
-#             f.write(chunk)
-#     except Exception, E:
-#         f.close()
-#         return u"写入文件错误:" + E.message
-#     f.close()
-#     return u"SUCCESS"
-
 def save_upload_file(PostFile, FilePath):
-    q = Auth(settings.QN_ACCESS_KEY, settings.QN_SECRET_KEY)
-    bucket_name = 'yumendy-blog'
-    key = FilePath
-    token = q.upload_token(bucket_name, key, 3600)
-    f = open(os.path.join(settings.BASE_DIR, FilePath), 'wb')
-    for chunk in PostFile.chunks():
-        f.write(chunk)
-    f.close()
-    ret, info = put_file(token, key, os.path.join(settings.BASE_DIR, FilePath))
-    print info
+    storage = default_storage
+    storage.save(FilePath, PostFile)
     return u"SUCCESS"
 
 
@@ -219,7 +202,7 @@ def UploadFile(request):
             state = save_scrawl_file(request, os.path.join(OutputPath, OutputFile))
         else:
             # 保存到文件中，如果保存错误，需要返回ERROR
-            path = 'media/' + OutputPathFormat
+            path = OutputPathFormat
             state = save_upload_file(file, path)
 
     # 返回数据
