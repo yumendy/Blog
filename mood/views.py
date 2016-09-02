@@ -12,13 +12,18 @@ class MoodCreateView(LoginRequiredMixin, AjaxableResponseMixin, CreateView):
     login_url = reverse_lazy('user-login')
     model = Mood
     fields = ['title', 'content', 'mood_type', 'image']
-    template_name_suffix = '_create_form'
     success_url = reverse_lazy('mood-list')
 
     def get_context_data(self, **kwargs):
         context = super(MoodCreateView, self).get_context_data(**kwargs)
         context['active_page'] = 'mood-add'
         return context
+
+    def get_template_names(self):
+        if self.request.META['HTTP_USER_AGENT'].lower().find('mobile') > 0:
+            return 'mood/mood_create_form_mobile.html'
+        else:
+            return 'mood/mood_create_form.html'
 
 
 class MoodListView(LoginRequiredMixin, ListView):
