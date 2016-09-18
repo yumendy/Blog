@@ -143,6 +143,8 @@ else:
 STATIC_ROOT = os.path.join(BASE_DIR, 'static').replace('\\', '/')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')
 
+DATA_UPLOAD_MAX_MEMORY_SIZE = 10485760  # 10M
+
 LOG_FILE = os.path.join(BASE_DIR, 'log/blog.log')
 DEBUG_LOG_FILE = os.path.join(BASE_DIR, 'log/debug.log')
 
