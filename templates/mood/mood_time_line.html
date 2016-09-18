@@ -37,7 +37,9 @@
                                     <p>{{ mood.content }}</p>
                                 </blockquote>
                             {% elif mood.mood_type == 'I' %}
-                                <img class="img-responsive" src="{% get_media_prefix%}{{ mood.image }}" />
+                                <a href="{% get_media_prefix %}{{ mood.image }}" target="_blank">
+                                    <img class="img-responsive" src="{{ mood.get_small_image_url }}" />
+                                </a>
                                 <p>{{ mood.content }}</p>
                             {% else %}
                                 <p>{{ mood.content }}</p>

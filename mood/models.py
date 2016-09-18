@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from Blog.local_settings import storage
 
 MOOD_TYPE_CHOICE = (
     ('T', 'Text'),
@@ -18,6 +19,12 @@ class Mood(models.Model):
 
     def __unicode__(self):
         return self.content
+
+    def get_small_image_url(self):
+        if storage == 'qiniu':
+            return self.image.url + '?imageView2/2/w/350'
+        else:
+            return self.image.url
 
     class Meta:
         ordering = ['-create_time']
