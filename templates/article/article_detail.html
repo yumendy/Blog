@@ -38,11 +38,26 @@
             <span class="label label-default"><span class="text-left"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span>&emsp;{{ article.category }}</span></span>
         </div>
         <div class="col-md-6 text-right">
-            <a role="button" class="btn btn-info" href="{% url 'homepage' %}"><span class="glyphicon glyphicon-console" aria-hidden="true"></span>&emsp;返回首页</a>
+            <a role="button" class="btn btn-info  btn-xs" href="{% url 'homepage' %}"><span class="glyphicon glyphicon-console" aria-hidden="true"></span>&emsp;返回首页</a>
         </div>
     </div>
     <div class="col-md-12 article">
     <!-- 多说评论框 start -->
+        <div class="ds-share flat" data-thread-key="{{ article.id }}" data-title="{{ article.title }}" data-images="" data-content="{{ article.title }}" data-url="http://yumendy.com{% url 'blog-detail' article.id %}">
+            <div class="ds-share-inline">
+              <ul  class="ds-share-icons-16">
+
+                <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+                <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+                <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+                <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+                <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+              </ul>
+              <div class="ds-share-icons-more">
+              </div>
+            </div>
+         </div>
         <div class="ds-thread" data-thread-key="{{ article.id }}" data-title="{{ article.title }}" data-url="http://yumendy.com{% url 'blog-detail' article.id %}"></div>
     <!-- 多说评论框 end -->
     </div>
