@@ -1,16 +1,15 @@
 # coding:utf-8
-from django.http import HttpResponse
-import settings as USettings
-import os
+import datetime
 import json
-from django.views.decorators.csrf import csrf_exempt
-import datetime, random
+import os
+import random
 import urllib
-from django.conf import settings
-from qiniu import Auth, put_file, etag, urlsafe_base64_encode
-import qiniu.config
 
-from django.core.files.storage import default_storage, get_storage_class
+from django.core.files.storage import default_storage
+from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
+
+import settings as USettings
 
 
 def get_path_format_vars():

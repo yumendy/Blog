@@ -91,6 +91,7 @@ python manage.py migrate
 
 1. 完成后端模板文件，在templates文件夹里建立一个名为mood的文件夹。
 1. 创建一个名为`mood_nav.html`的文件，用于作为后台导航栏，填写如下内容即可：
+
     ```html
     <ul class="nav nav-sidebar">
        <li id="mood-list"><a href="{% url 'mood-list' %}">碎碎念-列表</a></li>
@@ -98,11 +99,13 @@ python manage.py migrate
        <li id="mood-update"><a href="{% url 'mood-list' %}">碎碎念-更新</a></li>
     </ul>
     ```
+    
     在templates/website/backend/nav.html中加入`{% include 'mood/mood_nav.html' %}`
 1. 编写`mood_create_form.html`,`mood_update_form.html`,`mood_list`三个文件。在block的js中加入对应的提交方法，具体请参考其他项目。
 1. 编写时间轴页面`mood_time_line.html`，继承模板`'website/frontend/frontend_base.html'`在block的external_header中加入独有的静态文件。left中可以加入article类以获取与其他模块一样的区块效果。
 1. 编写侧边栏挂件`mood_weight.html`,直接写一个bootstrap的格就可以，添加article类以保证显示效果一致。
 1. 修改`mixin.py`编写需要传递给侧边栏挂件的数据。
+
     ```python
     from models import Mood
     
@@ -116,6 +119,7 @@ python manage.py migrate
                 pass
             return context
     ```
+    
     这样就写好了一个插件所需要的mixin。
 1. 把组件加入视图。修改`website/mixin.py`给`FrontMixin`类加一个LeastMoodMixin的继承即可。
 
