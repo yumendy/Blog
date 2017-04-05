@@ -15,8 +15,20 @@
         <p class="text-info">&emsp;&emsp;历经千辛万苦，终于是完成惹自己的博客，如果有什么好的建议，欢迎留言告诉我~</p>
     </div>
     <div class="col-md-12 article">
-        <!-- 多说评论框 start -->
-            <div class="ds-thread" data-thread-key="guestbook" data-title="留言板" data-url="http://yumendy.com/guest/"></div>
-        <!-- 多说评论框 end -->
+{#        <!-- 多说评论框 start -->#}
+{#            <div class="ds-thread" data-thread-key="guestbook" data-title="留言板" data-url="http://yumendy.com/guest/"></div>#}
+{#        <!-- 多说评论框 end -->#}
+        <!-- 网易云跟帖 start -->
+        <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+        <script>
+          var cloudTieConfig = {
+            url: document.location.href,
+            sourceId: "guestbook",
+            productKey: "4397727b35bd47fd8d34105e48b3d932",
+            target: "cloud-tie-wrapper"
+          };
+        </script>
+        <script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+        <!-- 网易云跟帖 end -->
     </div>
 {% endblock %}
